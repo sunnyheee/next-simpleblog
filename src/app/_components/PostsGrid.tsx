@@ -1,5 +1,6 @@
 import React from "react";
-import { Post } from "../api/posts";
+import { Post } from "../../api/posts";
+import PostCard from "./PostCard";
 
 type Porps = { posts: Post[] };
 
@@ -8,8 +9,10 @@ const PostsGrid = ({ posts }: Porps) => {
   return (
     <ul>
       {posts.map((post) => (
-        <li key={post.path}>{post.title}</li>
-      ))}{" "}
+        <li key={post.path}>
+          <PostCard post={post} />
+        </li>
+      ))}
     </ul>
   );
 };
