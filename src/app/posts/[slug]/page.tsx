@@ -2,6 +2,7 @@ import { getPostData } from "@/api/posts";
 import React from "react";
 import Image from "next/image";
 import PostContent from "@/app/_components/PostContent";
+import AdjacentPostCard from "@/app/_components/AdjacentPostCard";
 
 type Props = {
   params: {
@@ -11,7 +12,7 @@ type Props = {
 
 const PostPage = async ({ params: { slug } }: Props) => {
   const post = await getPostData(slug);
-  const { title, path } = post;
+  const { title, path, prev, next } = post;
 
   return (
     <article className=" rounded-2xl overflow-hidden bg-gray-100 shadow-lg m-4">
@@ -23,6 +24,10 @@ const PostPage = async ({ params: { slug } }: Props) => {
         alt={title}
       />
       <PostContent post={post} />
+      <section className=" flex shadow-md">
+        {prev && <AdjacentPostCard post={prev} type="prev" />}
+        {next && <AdjacentPostCard post={next} type="next" />}
+      </section>
     </article>
   );
 };
