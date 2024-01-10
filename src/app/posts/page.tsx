@@ -1,6 +1,6 @@
 import React from "react";
 import PostsGrid from "../_components/PostsGrid";
-import { getAllPosts } from "@/app/server/posts";
+import { getAllPosts } from "../server/posts";
 import FilteralblePosts from "../_components/FilteralblePosts";
 
 const PostsPage = async () => {

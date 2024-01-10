@@ -13,20 +13,26 @@ const MarkdownViewer = ({ content }: { content: string }) => {
       components={{
         code({ node, className, children, ...props }) {
           const match = /language-(\w+)/.exec(className || "");
-          return match ? (
-            <SyntaxHighlighter
-              language={match[1]}
-              PreTag="div"
-              {...props}
-              style={materialDark}
-            >
-              {String(children).replace(/\n$/, "")}
-            </SyntaxHighlighter>
-          ) : (
-            <code className={className} {...props}>
-              {children}
-            </code>
-          );
+          if (match) {
+            const { ref, ...rest } = props;
+
+            return (
+              <SyntaxHighlighter
+                language={match[1]}
+                PreTag="div"
+                {...rest}
+                style={materialDark}
+              >
+                {String(children).replace(/\n$/, "")}
+              </SyntaxHighlighter>
+            );
+          } else {
+            return (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            );
+          }
         },
         img: (image) => (
           <Image

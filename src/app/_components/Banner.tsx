@@ -2,10 +2,10 @@ import React from "react";
 
 export type BannerData = {
   message: string;
-  state: "success" | "error";
+  status: "success" | "error";
 };
-const Banner = ({ banner: { message, state } }: { banner: BannerData }) => {
-  const isSuccess = state === "success";
+const Banner = ({ banner: { message, status } }: { banner: BannerData }) => {
+  const isSuccess = status === "success";
   const icon = isSuccess ? "✅" : "🔥";
 
   return (

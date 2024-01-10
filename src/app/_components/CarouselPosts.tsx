@@ -1,4 +1,4 @@
-import { getNonFeaturedPosts } from "@/app/server/posts";
+import { getNonFeaturedPosts } from "../server/posts";
 import React from "react";
 import PostCard from "./PostCard";
 

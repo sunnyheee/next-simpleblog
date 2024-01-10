@@ -28,14 +28,14 @@ const ContactFrom = () => {
       .then(() => {
         setBanner({
           message: "메일을 성공적으로 보냈습니다",
-          state: "success",
+          status: "success",
         });
         setForm(DEFAULT_DATA);
       })
       .catch(() => {
         setBanner({
           message: "메일전송에 실패했습니다. 다시 시도해 주세요",
-          state: "error",
+          status: "error",
         });
       })
       .finally(() => {
@@ -55,6 +55,7 @@ const ContactFrom = () => {
           Your Email
         </label>
         <input
+          className="text-black"
           type="email"
           id="from"
           name="from"
@@ -67,6 +68,7 @@ const ContactFrom = () => {
           Subject
         </label>
         <input
+          className="text-black"
           type="text"
           id="subject"
           name="subject"
