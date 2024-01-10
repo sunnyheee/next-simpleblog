@@ -1,5 +1,5 @@
 import React from "react";
-import { Post } from "../../api/posts";
+import { Post } from "../server/posts";
 import PostCard from "./PostCard";
 
 type Porps = { posts: Post[] };

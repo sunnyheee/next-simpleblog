@@ -1,6 +1,6 @@
 import { FaRegCalendar } from "react-icons/fa";
 import MarkdownViewer from "@/app/_components/MarkdownViewer";
-import { PostData } from "@/api/posts";
+import { PostData } from "@/app/server/posts";
 
 const PostContent = ({ post }: { post: PostData }) => {
   const { title, description, date, path, content } = post;

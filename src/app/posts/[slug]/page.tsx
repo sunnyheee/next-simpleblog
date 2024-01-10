@@ -1,4 +1,4 @@
-import { getPostData } from "@/api/posts";
+import { getPostData } from "@/app/server/posts";
 import React from "react";
 import Image from "next/image";
 import PostContent from "@/app/_components/PostContent";
