@@ -1,10 +1,9 @@
 import { EmailData } from "./email";
 
 export async function sendContactEmail(email: EmailData) {
-  // API Route에 이메일 전송을 위한 요청을 보냄 (fetch)
   const res = await fetch("/api/contact", {
-    method: "POST",
-    body: JSON.stringify(email),
+    method: "POST", // HTTP POST methodを使ってサーバーにデータを転送します。
+    body: JSON.stringify(email), // email objectをJSONに変換してbodyに入れます。
     headers: {
       "Content-Type": "applicatioin/json",
     },
@@ -12,7 +11,7 @@ export async function sendContactEmail(email: EmailData) {
 
   const data = await res.json();
   if (!res.ok) {
-    throw new Error(data.message || "서버 요청에 실패함");
+    throw new Error(data.message || "fail server request");
   }
 
   return data;

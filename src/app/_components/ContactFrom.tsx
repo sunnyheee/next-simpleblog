@@ -27,14 +27,14 @@ const ContactFrom = () => {
     sendContactEmail(form)
       .then(() => {
         setBanner({
-          message: "메일을 성공적으로 보냈습니다",
+          message: "メール転送を成功しました。",
           status: "success",
         });
         setForm(DEFAULT_DATA);
       })
       .catch(() => {
         setBanner({
-          message: "메일전송에 실패했습니다. 다시 시도해 주세요",
+          message: "メール転送を失敗しました。再転送してください。",
           status: "error",
         });
       })
