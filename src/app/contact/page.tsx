@@ -2,6 +2,13 @@ import { link } from "fs";
 import React from "react";
 import { AiFillGithub, AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import ContactFrom from "../_components/ContactFrom";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description: "Sunnyheeeにメールを送る",
+};
+
 const LINKS = [
   { icon: <AiFillGithub />, url: "" },
   { icon: <AiFillInstagram />, url: "" },
@@ -11,7 +18,7 @@ const Contact = () => {
   return (
     <section className="flex flex-col items-center">
       <h2 className="text-3xl font-bold my-2">Contact Me</h2>
-      <p>sunnyheee0@gmail.com</p>
+      <p>Sunnyheee0@gmail.com</p>
       <ul className="flex gap-4 my-2">
         {LINKS.map((link, index) => (
           <li key={index}>

@@ -1,7 +1,14 @@
 import React from "react";
 import Hero from "../_components/Hero";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description: "Sunnyheeeのキャリア紹介",
+};
 
 const TITLE_CLASS = " text-2xl font-bold text-gray-800 my2";
+
 const About = () => {
   return (
     <>

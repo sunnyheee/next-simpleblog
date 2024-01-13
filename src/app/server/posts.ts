@@ -27,7 +27,6 @@ export async function getNonFeaturedPosts(): Promise<Post[]> {
 
 export async function getAllPosts(): Promise<Post[]> {
   const filePath = path.join(process.cwd(), "data", "posts.json");
-  console.log(filePath, "filePath");
 
   return (
     readFile(filePath, "utf-8")
