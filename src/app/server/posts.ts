@@ -1,5 +1,6 @@
 import { readFile } from "fs/promises";
 import path from "path";
+import { cache } from "react";
 
 export type Post = {
   title: string;
@@ -25,7 +26,8 @@ export async function getNonFeaturedPosts(): Promise<Post[]> {
   return getAllPosts().then((posts) => posts.filter((post) => !post.featured));
 }
 
-export async function getAllPosts(): Promise<Post[]> {
+export const getAllPosts = cache(async () => {
+  console.log("getAllPosts");
   const filePath = path.join(process.cwd(), "data", "posts.json");
 
   return (
@@ -34,7 +36,17 @@ export async function getAllPosts(): Promise<Post[]> {
       // 날짜순으로 정렬
       .then((posts) => posts.sort((a, b) => (a.date > b.date ? -1 : 1)))
   );
-}
+});
+// export async function getAllPosts(): Promise<Post[]> {
+//   const filePath = path.join(process.cwd(), "data", "posts.json");
+
+//   return (
+//     readFile(filePath, "utf-8")
+//       .then<Post[]>(JSON.parse)
+//       // 날짜순으로 정렬
+//       .then((posts) => posts.sort((a, b) => (a.date > b.date ? -1 : 1)))
+//   );
+// }
 
 export async function getPostData(fillName: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), "data", "posts", `${fillName}.md`);

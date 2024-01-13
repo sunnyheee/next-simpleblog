@@ -1,4 +1,4 @@
-import { getPostData } from "../../server/posts";
+import { getFeaturedPosts, getPostData } from "../../server/posts";
 import React from "react";
 import Image from "next/image";
 import PostContent from "@/app/_components/PostContent";
@@ -44,3 +44,10 @@ const PostPage = async ({ params: { slug } }: Props) => {
 };
 
 export default PostPage;
+
+export async function generateStaticParams() {
+  const posts = await getFeaturedPosts();
+  return posts.map((post) => {
+    slug: post.path;
+  });
+}
